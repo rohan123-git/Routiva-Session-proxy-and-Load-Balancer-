@@ -1,30 +1,22 @@
-# Gradle
-.gradle/
-build/
-**/build/
-
-# Java
-*.class
-
-# SQLite Database & Runtime files
-relay.db
-*.db
-*.db-journal
-
 # Logs
+logs
 *.log
-logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Node
-node_modules/
-**/node_modules/
+node_modules
+dist
+dist-ssr
+*.local
 
-# OS & IDE
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
 .DS_Store
-Thumbs.db
-.idea/
-*.iml
-.vscode/
 *.suo
 *.ntvs*
 *.njsproj
