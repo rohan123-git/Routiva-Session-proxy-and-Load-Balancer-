@@ -1,32 +1,38 @@
-# React + TypeScript + Vite
+# Relay: TCP/HTTP Session Proxy and Load Balancer
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+[![Core: Raw Java Sockets](https://img.shields.io/badge/Core-Java%2021%20Berkeley%20Sockets-teal.svg)](file:///e:/AJ/CN/CN_2/core)
+[![Control Plane: Javalin](https://img.shields.io/badge/API-Javalin%206%20%2B%20SQLite-0284c7.svg)](file:///e:/AJ/CN/CN_2/api)
+[![Dashboard: React + Vite](https://img.shields.io/badge/Dashboard-React%2018%20%2B%20Tailwind-14b8a6.svg)](file:///e:/AJ/CN/CN_2/web)
+[![License: MIT](https://img.shields.io/badge/License-MIT-slate.svg)](LICENSE)
 
-Currently, two official plugins are available:
+A production-quality Computer Networks project implementing a TCP/HTTP session proxy and load balancer from scratch using raw Java Berkeley sockets (`java.net.ServerSocket` and `java.net.Socket`). Zero third-party proxy frameworks (no Netty, no Spring Cloud Gateway, no Envoy).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+For detailed documentation, architecture diagrams, Wireshark instructions, and full API references, see [docs/README.md](file:///e:/AJ/CN/CN_2/docs/README.md).
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Quickstart
 
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+### Windows
+```cmd
+.\run.bat
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+### Linux / macOS
+```bash
+./run.sh
+```
+
+### Docker
+```bash
+docker-compose up --build
+```
+
+---
+
+## Endpoints & Access
+- **Live Dashboard**: [http://localhost:8000/](http://localhost:8000/)
+- **Core Proxy**: [http://localhost:8080/](http://localhost:8080/)
+  - `/api/*` -> API Pool (`:9001`, `:9002`)
+  - `/static/*` -> Static Pool (`:9003`, `:9004`)
+- **Demo Operator**: `demo@relay.dev` / `Demo@1234`
